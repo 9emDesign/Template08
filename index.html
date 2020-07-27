@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Fullscreen Background Image Slideshow with CSS3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Fullscreen Background Image Slideshow with CSS3 - A Css-only fullscreen background image slideshow" />
+        <meta name="keywords" content="css3, css-only, fullscreen, background, slideshow, images, content" />
+        <link rel="stylesheet" type="text/css" href="css/css960grid.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="jquery-3.3.1.min.js"></script>
+        <script src="script.js"></script>
+        <link rel="stylesheet" type="text/css" href="w3.css">
+        <script src="https://kit.fontawesome.com/7657e7afb1.js" crossorigin="anonymous"></script>
+
+       <style>
+      .position1{
+      position:absolute;
+      top:490px;
+      left:470px;
+      z-index: 5;
+      }
+      .position1 a:link{color:snow;}
+      .pulse{
+      width:100px;
+      height:100px;
+      position:absolute;
+      top:490px;
+      left:440px;
+      border-radius:50%;
+      background-color:red;
+      z-index: 0;
+      animation: pulse 3s linear infinite;
+      }
+
+      @keyframes pulse {
+        0%{box-shadow: 0 0 0 0 rgba(255, 255, 255,0.7),
+          0 0 0 0 rgba(255, 255, 255,0.7);}
+
+        40%{box-shadow: 0 0 0 30px rgba(255, 255, 255,0),
+          0 0 0 0 rgba(255, 255, 255,0.7);}
+
+        80%{box-shadow: 0 0 0 30px rgba(255, 255, 255,0),
+          0 0 0 35px rgba(255, 255, 255,0);}
+
+        100%{box-shadow: 0 0 0 0 rgba(255, 255, 255,0),
+          0 0 0 35px rgba(255, 255, 255,0);}
+      }
+        </style>
+
+
+<style>
+.mySlides {display:none;margin: 0;padding: 0;}
+.w3-left, .w3-right, .w3-badge {cursor:pointer;}
+.w3-badge {height:15px;width:15px;padding:0}
+.w3-badge{position:relative;left:160px;}
+</style>
+
+    </head>
+    <body>
+
+
+
+        <div class="row">
+            <nav>
+                    <a href="#"><img src="images/NL_ned.png" width="16" height="16"> nederlands</a>
+                    <a href="#"><img src="images/Us_eng.png" width="16" height="16"> english</a>
+                    <a href="#"><img src="images/ES_esp.png" width="16" height="16"> espanol</a>
+                    </nav>
+        <div class="col_12 first" style="background-color:#000000;color:#ffffff">
+
+<div class="w3-container" style="position:absolute;top:5px;z-index:1;">
+
+     <div id="logo"><img class="fl" src="images/logoTuki150.png">
+          <H1 class="header fl low">Tuki Apartments &amp; Bungalows</H1>
+
+          <div class="center">
+          <div class="pulse"></div>
+          <span class="position1" style="font-size: 64px; color: snow;">
+          <a href="#top">  <span class="fas fa-angle-double-down"></span></a>
+          </span>
+          </div>
+
+                </div>
+
+ </div>
+<div class="w3-content w3-display-container" style="max-width:960px;">
+  <a href="images/1.jpg"><img class="mySlides" src="images/1.jpg" style="width:100%;height:585px"></a>
+  <a href="images/2.jpg"><img class="mySlides" src="images/2.jpg" style="width:100%;height:585px">
+  <a href="images/3.jpg"><img class="mySlides" src="images/3.jpg" style="width:100%;height:585px"></a>
+  <a href="images/4.jpg"><img class="mySlides" src="images/4.jpg" style="width:100%;height:585px"></a>
+  <a href="images/5.jpg"><img class="mySlides" src="images/5.jpg" style="width:100%;height:585px"></a>
+  <div class="w3-center w3-container w3-section w3-xxlarge w3-text-white w3-display-middle" style="width:100%">
+  <div class="w3-left w3-hover-text-Blue-Gray" onclick="plusDivs(-1)">&#10094;</div>
+  <div class="w3-right w3-hover-text-Blue-Gray" onclick="plusDivs(1)">&#10095;</div>
+    <!--<span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(1)" ></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(3)"></span>
+     <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(4)"></span>
+      <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(5)"></span>-->
+  </div>
+</div>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 10000); // Change image every 2 seconds
+}
+</script>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-white";
+}
+</script>
+
+
+                <div id='cssmenu'>
+                    <ul>
+                        <li>
+                            <a href='#'>Home</a>
+                        </li>
+                        <li class='active has-sub'>
+                            <a href="#">Products</a>
+                            <ul>
+                                <li class='has-sub'>
+                                    <a href="#">Product1</a>
+                                    <ul>
+                                        <li>
+                                            <a href='#'>Sub Product</a>
+                                        </li>
+                                        <li>
+                                            <a href='#'>Sub Product</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class='has-sub'>
+                                    <a href="#">Product2</a>
+                                    <ul>
+                                        <li>
+                                            <a href='#'>Sub Product</a>
+                                        </li>
+                                        <li>
+                                            <a href='#'>Sub Product</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="has-sub">
+                            <a href="#">Seasons</a>
+                            <ul>
+                                <li>
+                                    <a href='#'>Autum</a>
+                                </li>
+                                <li>
+                                    <a href='#'>Summer</a>
+                                </li>
+                                <li>
+                                    <a href='#'>Fall</a>
+                                </li>
+                                <li>
+                                    <a href='#'>Winter</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="has-sub">
+                            <a href="#">About</a>
+                            <ul>
+                                <li>
+                                    <a href='#'>Sub about</a>
+                                </li>
+                                <li>
+                                    <a href='#'>Sub about</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href='#'>Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!--<div class="row">
+        <div class="col_9 first  " style="background-color:#6cc">
+
+        <p>&nbsp; Here�s a 3/4 width column</p></div>
+        <aside class="col_3 last  " style="background-color:#6CC"><p>&nbsp; And it�s 1/4 width counterpart<br/>Lorem ipsum dolor sit amet,
+        at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex. His iisque neglegentur in.
+        Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an. Vim dictas insolens te,
+        ne ornatus verterem nominati eum. Putent constituam inciderint per eu, ad quas fabellas vel, melius forensibus quo id.
+        Iriure denique mei eu, eu qui docendi albucius. Ex nullam salutandi vim, eros ridens nec te. Ex vim exerci iuvaret,
+        id nam zril sapientem molestiae.</p></aside>
+        </div>-->
+        <div class="row">
+            <section id="top" class="col_8 first  " style="background-color:#CF0">
+              <picture>
+                  <source  media="(min-width: 850px)" srcset="images/jump_tablet_960.jpg">
+                  <source  media="(min-width: 750px)" srcset="images/jump_tablet.jpg">
+                  <source  media="(min-width: 200px)" srcset="images/jump.jpg">
+                  <img src="images/jump.jpg"  alt="Jumping man">
+              </picture><!--<img src="images/jump.jpg" alt="jumping man" id="man" class="fl resize" width="330px" height="330px">--><h2>Here�s a 2/3 width column</h2>
+                <p>
+                    Lorem ipsum dolor sit amet,
+                    at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex. His iisque neglegentur in.
+                    Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an. Vim dictas insolens te,
+                    ne ornatus verterem nominati eum. Putent constituam inciderint per eu, ad quas fabellas vel, melius forensibus quo id.
+                    Iriure denique mei eu, eu qui docendi albucius. Ex nullam salutandi vim, eros ridens nec te. Ex vim exerci iuvaret,
+                    id nam zril sapientem molestiae.
+                </p>
+            </section>
+            <section class="col_4 last  " style="background-color:#9CC">
+                <h4>And it's 1/3 width counterpart.</h4>
+                <p>
+                    Lorem ipsum dolor sit amet,
+                    at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex. His iisque neglegentur in.
+                    Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an. Vim dictas insolens te,
+                    ne ornatus verterem nominati eum. Putent constituam inciderint per eu, ad quas fabellas vel, melius forensibus quo id.
+                    Iriure denique mei eu, eu qui docendi albucius. Ex nullam salutandi vim, eros ridens nec te. Ex vim exerci iuvaret,
+                    id nam zril sapientem molestiae.
+                </p>
+            </section>
+        </div>
+        <!--<div class="row">
+        <div class="col_4 first" style="background-color:#9CC"><p>I�m a 1/3 width first</p></div>
+        <div class="col_8 last" style="background-color:#CF0"><p>And I�m a 2/3 width last</p></div>
+        </div>-->
+        <div class="row">
+            <article class="col_6 first  " style="background-color:#9CC">
+                <h3>Want to go halfsies?</h3>
+                <p>
+                    ipsum dolor sit amet,
+                    at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex. His iisque neglegentur in.
+                    Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an. Vim dictas insolens te,
+                    ne ornatus verterem nominati eum. Putent constituam inciderint per eu, ad quas fabellas vel, melius forensibus quo id.
+                    Iriure denique mei eu, eu qui docendi albucius.ipsum dolor sit amet,
+                    at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex. His iisque neglegentur in.
+                    Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an. Vim dictas insolens te,
+                    ne ornatus verterem nominati eum. Putent constituam inciderint per eu, ad quas fabellas vel, melius forensibus quo id.
+                    Iriure denique mei eu, eu qui docendi albucius.
+                </p>
+            </article>
+            <article class="col_6 last  " style="background-color:#CF0">
+                <h3>Sure, I'll go halfsies!</h3>
+                <p>
+                    ipsum dolor sit amet,
+                    at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex. His iisque neglegentur in.
+                    Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an. Vim dictas insolens te,
+                    ne ornatus verterem nominati eum. Putent constituam inciderint per eu, ad quas fabellas vel, melius forensibus quo id.
+                    Iriure denique mei eu, eu qui docendi albucius.ipsum dolor sit amet,
+                    at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex. His iisque neglegentur in.
+                    Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an. Vim dictas insolens te,
+                    ne ornatus verterem nominati eum. Putent constituam inciderint per eu, ad quas fabellas vel, melius forensibus quo id.
+                    Iriure denique mei eu, eu qui docendi albucius.
+                </p>
+            </article>
+        </div>
+        <div class="row">
+            <article class="col_3 first  " style="background-color:#CF0">
+                <h3>Here's a 1/3 width column</h3>
+                <p>
+                    <img class="fl" src="images/zman1.jpg">
+                    Lorem ipsum dolor sit amet, at malis soluta assentior mea,exerci delicata adipiscing at per, pro solet dolores ex.
+                    His iisque neglegentur in. Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an.
+                    Vim dictas insolens te, ne ornatus verterem nominati eum. Putent constituam inciderint per eu, ad quas fabellas vel,
+                    melius forensibus quo id.Iriure denique mei eu, eu qui docendi albucius. Ex nullam salutandi vim, eros ridens nec te.
+                    Ex vim exerci iuvaret, id nam zril sapientem molestiae.
+                </p>
+                <br/>
+                <br/>
+            </article>
+            <article class="col_3  " style="background-color:#cf0">
+                <h3>I'm a 1/3 width column, too!</h3>
+                <p><img class="fl" src="images/zman2.jpg">
+                    Lorem ipsum dolor sit amet, at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex.
+                    His iisque neglegentur in. Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an.
+                    Vim dictas insolens te, ne ornatus verterem nominati eum. Putent constituam inciderint per eu, ad quas fabellas vel,
+                    melius forensibus quo id.Iriure denique mei eu, eu qui docendi albucius. Ex nullam salutandi vim, eros ridens nec te.
+                    Ex vim exerci iuvaret, id nam zril sapientem molestiae.
+                </p>
+                <br/>
+                <br/>
+            </article>
+            <article class="col_3 last  " style="background-color:#cf0">
+                <h3>I'm the last 1/3 width :(</h3>
+                <p><img class="fl" src="images/zman3.jpg">
+                    Lorem ipsum dolor sit amet, at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex.
+                    His iisque neglegentur in. Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an.
+                    Vim dictas insolens te, ne ornatus verterem nominati eum. Putent constituam inciderint per eu, ad quas fabellas vel,
+                    melius forensibus quo id.Iriure denique mei eu, eu qui docendi albucius. Ex nullam salutandi vim, eros ridens nec te.
+                    Ex vim exerci iuvaret, id nam zril sapientem molestiae.
+                </p>
+                <br/>
+                <br/>
+            </article>
+        </div>
+        <div class="row">
+            <article class="col_5 first" style="background-color:#9cc">
+                <h4>Can we do 1/4 column</h4>
+                <p>
+                    <br/>
+                    <img class="imgborder" src="images/zayno4.jpg">
+                    <br/>
+                    <div class="black"><p>
+                        Lorem ipsum dolor sit amet, at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex.
+                        His iisque neglegentur in. Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an.
+                        <br/>
+                        <br/>
+                      </p>
+                    </div>
+                </p>
+            </article>
+        </div>
+
+        <article class="col_5" style="background-color:#9CC">
+            <h4>Sure we can do 1/4!</h4>
+            <p>
+                <br/>
+                <img class="imgborder" src="images/zayno2.jpg">
+                <div class="black"><p>
+                    Lorem ipsum dolor sit amet, at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex.
+                    His iisque neglegentur in. Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an.
+                    <br/>
+                    <br/>
+                  </p>
+                </div>
+            </p>
+        </article>
+        <article class="col_5" style="background-color:#9CC">
+            <h4>I echo that sentiment!</h4>
+            <p>
+                <br/>
+                <img class="imgborder" src="images/zayno3.jpg">
+                <br/>
+                <div class="black"><p>
+                    Lorem ipsum dolor sit amet, at malis soluta assentior mea, exerci delicata adipiscing at per, pro solet dolores ex.
+                    His iisque neglegentur in. Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an.
+                    <br/>
+                    <br/>
+                  </p>
+                </div>
+            </p>
+        </article>
+        <article class="col_5 last" style="background-color:#9CC">
+            <h4>Why am I always last? :(</h4>
+            <br/>
+            <img class="imgborder" src="images/zayno4.jpg">
+            <br/>
+            <div class="black"><p>
+                Lorem ipsum dolor sit amet, at malis soluta assentior mea, <a href="index.html">home</a>exerci delicata adipiscing at per, pro solet dolores ex.
+                His iisque neglegentur in. Nec ad veri nihil nemore. Ubique audire fabulas ne usu, case error nostrum vis an.
+                <br/>
+                <br/>
+              </p>
+            </div>
+        </article>
+        <div class="row">
+            <footer align="center" class="col_13" style="background-color:#705c59">
+                <p>
+                    Here's a full width footer column
+                    <br/>
+                    <a href="index.html">home</a>
+                </p>
+            </footer>
+        </div>
+
+    </body>
+</html>
